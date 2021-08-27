@@ -81,7 +81,9 @@ public class FacturaController {
 
 
     @PostMapping("/clients/current/newfactura")
-    private ResponseEntity<?> newFactura(Authentication authentication, String[] nameArticle, Integer[] cantArticle, String[] nameEvent, Integer[] cantEvent) {
+    private ResponseEntity<?> newFactura(Authentication authentication, String[] nameArticle, Integer[] cantArticle
+                                         , String[] nameEvent, Integer[] cantEvent
+                                          ) {
 
         Client client = clientService.findClientByEmail(authentication.getName());
 
@@ -116,6 +118,7 @@ public class FacturaController {
                 merchRepository.save(product);
             }
         }
+
 
         if (cantEvent.length > 0) {
 
