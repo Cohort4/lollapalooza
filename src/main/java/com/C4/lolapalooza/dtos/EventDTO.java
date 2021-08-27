@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class EventDTO {
     private UUID id;
-    private String name;
+    private String nameEvent;
     private List<String> bands = new ArrayList<>();
     private String site;
     private Boolean status;
@@ -23,7 +23,7 @@ public class EventDTO {
 
     public EventDTO(Event event) {
         this.id = event.getId();
-        this.name = event.getName();
+        this.nameEvent = event.getNameEvent();
         this.bands = event.getBand();
         this.status = event.getStatus();
         this.site = event.getSite().getLocation();
@@ -42,12 +42,12 @@ public class EventDTO {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNameEvent() {
+        return nameEvent;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameEvent(String nameEvent) {
+        this.nameEvent = nameEvent;
     }
 
     public Boolean getStatus() {

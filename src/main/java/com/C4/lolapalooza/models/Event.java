@@ -11,7 +11,7 @@ public class Event {
     @GeneratedValue
     private UUID id;
 
-    private String name;
+    private String nameEvent;
     private LocalDate dateEvent;
     private double price;
     private Boolean status;
@@ -34,8 +34,8 @@ public class Event {
     public Event() {
     }
 
-    public Event(String name,List<String> band,LocalDate dateEvent, double price, Site site,Boolean status, String image) {
-        this.name = name;
+    public Event(String nameEvent,List<String> band,LocalDate dateEvent, double price, Site site,Boolean status, String image) {
+        this.nameEvent = nameEvent;
         this.band = band;
         this.dateEvent = dateEvent;
         this.price = price;
@@ -53,12 +53,12 @@ public class Event {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNameEvent() {
+        return nameEvent;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameEvent(String nameEvent) {
+        this.nameEvent = nameEvent;
     }
 
     public List<String> getBand() {

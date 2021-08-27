@@ -123,7 +123,7 @@ public class FacturaController {
 
 
             for (int i = 0; i < cantEvent.length; i++) {
-                Event eventToFacturar = eventRepository.findByName(nameEvent[i]);
+                Event eventToFacturar = eventRepository.findBynameEvent(nameEvent[i]);
 
                 for (int j = 0; j < cantEvent[i]; j++) {
 

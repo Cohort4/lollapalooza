@@ -81,7 +81,7 @@ public class EventController {
         {
             return new ResponseEntity<>("Incomplete dates", HttpStatus.FORBIDDEN);
         }
-        Event eventToModificate = eventRepository.findByName(nameEvent);
+        Event eventToModificate = eventRepository.findBynameEvent(nameEvent);
         if(eventToModificate==null)
         {
             return new ResponseEntity<>("Event not found", HttpStatus.FORBIDDEN);

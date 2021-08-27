@@ -166,7 +166,7 @@
                                     </div>
                                     <div class="botonesCarrito">
                                         <button class="btn btn-dark" @click="decrement(item)" :disabled="item.count<=1">
-                                                < </button>
+                                                 </button>
                                         <span class="m-3">{{item.count}}</span>
                                         <button class="btn btn-dark" @click="increment(item)"> >
                                                     </button>
@@ -183,7 +183,7 @@
                                 <p>Total</p>
                                 <p>{{ formatBalance(totalPrice) }}</p>
                             </div>
-                            <button class="btn btn-primary mb-5 ms-5 me-5">Comprar</button>
+                            <a href="/payment.html"><button  class="btn btn-primary mb-5 ms-5 me-5">Comprar</button></a>
                         </div>
                     </div>
 
