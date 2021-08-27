@@ -73,7 +73,7 @@
                 <div class="d-flex flex-row flex-wrap align-center justify-content-evenly">
                     <div class="d-flex flex-column mb-5 cajaComentarios" v-for="evento in eventosPrevios">
                         <div class="card-header">
-                            <h1>{{evento.name}}</h1>
+                            <h1>{{evento.nameEvent}}</h1>
                             <img :src="evento.image" alt="" class="card-img-top imagenesEventos" :id="evento.id">
                         </div>
                         <div class="card-body cajitaComentarios" v-for="x in evento.comments">
