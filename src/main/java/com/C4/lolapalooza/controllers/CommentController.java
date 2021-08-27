@@ -58,6 +58,7 @@ public class CommentController {
         Client client = clientRepository.findByEmail(authentication.getName());
 
         PreviousEvent previousEvent = previousEventRepository.getById(id);
+
         if(client == null){
             return new ResponseEntity<>("Client not recognized", HttpStatus.FORBIDDEN);
         }

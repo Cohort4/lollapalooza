@@ -17,6 +17,7 @@ const app = Vue.createApp({
             // Filtros
             check: [],
             productType: [],
+            logged: sessionStorage.getItem("LOGGED") != null ? sessionStorage.getItem("LOGGED") : "false"
         }
     },
 
@@ -90,9 +91,11 @@ const app = Vue.createApp({
             sessionStorage.setItem('SESSIONSTATUS', JSON.stringify(this.cartItems))
             this.cartItems = JSON.parse(sessionStorage.getItem("SESSIONSTATUS"));
         },
-        logOut() {
-            axios.post('/api/logout').then(response => window.location.href = "/web/index.html")
+        loggedOut() {
+            sessionStorage.clear();
+            axios.post('/api/logout').then(response => window.location.href = "/index.html")
                 .catch(error => Swal.fire(error.response.data))
+                
         },
     
 

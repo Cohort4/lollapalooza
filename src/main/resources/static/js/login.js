@@ -6,9 +6,9 @@ const app = Vue.createApp({
             signU: "or Sign Up",
             sign: "Sign In",
             email: "",
-            psw:"",
-            firstName:"",
-            lastName:"",
+            psw: "",
+            firstName: "",
+            lastName: "",
         }
     },
 
@@ -33,28 +33,34 @@ const app = Vue.createApp({
             if (sing == "Sign In") {
                 axios.post('/api/login', "email=" + this.email + "&password=" + this.psw,
                     { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
-                    .then(() => { swal("Log in successfully") 
-                     setTimeout(() => { 
-                         if (this.email == "admin@lollapalooza.com"){
-                            window.location.href = "/manager.html"
-                        } else {
-                            window.location.href = "/index.html"
+                    .then(() => {
 
-                        } 
-                    }, 1000) })
+                        sessionStorage.setItem('LOGGED', JSON.stringify("true"))
+                        
+                        swal("Log in successfully")
+                        
+                        setTimeout(() => {
+                            if (this.email == "admin@lollapalooza.com") {
+                                window.location.href = "/manager.html"
+                            } else {
+                                window.location.href = "/index.html"
+
+                            }
+                        }, 1000)
+                    })
                     .catch(err => swal(err.data.response))
-            } 
+            }
             /* Registro */
             if (sing == "Sign Up") {
                 axios.post('/api/clients', "firstName=" + this.firstName + "&lastName=" + this.lastName + "&email=" + this.email + "&password=" + this.psw,
-                 { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
+                    { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
                     .then(() => {
                         /* Login cliente nuevo */
                         axios.post('/api/login', "email=" + this.email + "&password=" + this.psw,
                             { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
                             .then(() => {
-                                swal("User Created & Log in successfully"); 
-                                setTimeout(() => { window.location.href = "/index.html"}, 3000)
+                                swal("User Created & Log in successfully");
+                                setTimeout(() => { window.location.href = "/index.html" }, 3000)
                             })
                             .catch(err => swal(err.data.response))
                     })
@@ -63,9 +69,9 @@ const app = Vue.createApp({
         }
     },
 
-   
 
-    
+
+
 
     computed: {
     },

@@ -4,6 +4,7 @@ const app = Vue.createApp({
         return {
             eventosPrevios: [],
             description: '',
+            logged: sessionStorage.getItem("LOGGED") != null ? sessionStorage.getItem("SESSIONSTATUS") : "false"
         }
     },
 
@@ -19,9 +20,26 @@ const app = Vue.createApp({
     methods: {
         postNewComment(x) {
             axios.post(`/api/addComment`, `id=${x}&description=${this.description}`)
-                .then(alert("Comentario enviado"))
-                .then(location.reload())
-                .catch(error)
+            .then(() => {
+
+                alert("Comentario enviado")
+                location.reload() 
+            })
+            .catch( ()=> 
+                
+                Swal.fire({
+                    title: 'You have to be logged in to comment',
+                    text: "Do you want to log in?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, I want to log in'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href=("/login.html")
+                    }
+                  }))
         },
         editComment(x) {
             axios.post(`/api/editComment`, `description=${this.description}&idComment=${x}`)
@@ -37,9 +55,11 @@ const app = Vue.createApp({
                 .then(alert("Comentario eliminado"))
                 .then(location.reload())
         },
-        logOut() {
-            axios.post('/api/logout').then(response => window.location.href = "/web/index.html")
+        loggedOut() {
+            sessionStorage.clear();
+            axios.post('/api/logout').then(response => window.location.href = "/index.html")
                 .catch(error => Swal.fire(error.response.data))
+                
         },
         getJSessionId() {
             var jsId = document.cookie.match(/JSESSIONID=[^;]+/);

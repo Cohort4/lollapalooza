@@ -67,7 +67,8 @@
                                 </a>
                         </li>
                         <li class="nav-menu-item">
-                            <a href="./login.html" class="nav-menu-link nav-link">Log In</a>
+                            <a  v-if="logged == 'false'" href="./login.html" class="nav-menu-link nav-link">Log In</a>
+                            <a  @Click="loggedOut()" v-else href="./login.html" class="nav-menu-link nav-link">Log Out</a>
                         </li>
                     </ul>
                 </nav>
