@@ -1,10 +1,3 @@
-:root {
-    --a: #D93B18;
-    --b: #5BA69E;
-    --mainColor: rgb(13, 0, 128);
-    --navColor: #181828;
-    --footerColor: black;
-}
 
 html {
     box-sizing: border-box;
@@ -15,7 +8,7 @@ html {
 *:after {
     box-sizing: inherit;
 }
-.img {
+/* .img {
     width: 50vw;
     height: 20vh;
     background-image: url(../assets/logoShop.png);
@@ -24,7 +17,7 @@ html {
     background-size: contain;
     margin: auto;
 }
-
+ */
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -55,7 +48,7 @@ html {
 
 .tickets {
     min-height: 60rem;
-    background-color: #272727;
+    background-color: var(--d);
     margin: 0;
 }
 
@@ -92,7 +85,7 @@ html {
 .accordion-item,
 .accordion-button,
 .accordion-button:not(.collapsed) {
-    background-color: #272727 !important;
+    background-color: var(--d) !important;
     width: 80vw;
 }
 
@@ -103,7 +96,7 @@ html {
 }
 
 h2:hover {
-    color: #FC9779;
+    color: var(--a);
     cursor: pointer;
 }
 
@@ -166,8 +159,20 @@ h2:hover {
 /* TERMINA MAIN */
 
 /* Carrito */
+
+.offcanvas-end {
+    height: 100vh;
+}
 .offcanvas-header { 
     font-size: 1.5rem;
+    background-color: var(--e);
+    color: white;
+    border-bottom: 3px double var(--b);
+}
+.offcanvas-body {
+    background-color: var(--d);
+    color: white;
+    padding: 10px ;
 }
 
 .tittle {
@@ -191,7 +196,7 @@ h2:hover {
     right: 0;
     width: 30vw;
     height: 100vh;
-    background-color: rgb(143, 138, 138);
+    background-color: var(--d);
     z-index: 1;
 }
 
@@ -201,33 +206,38 @@ h2:hover {
 }
 
 .products {
-    height: 23%;
+    min-height: 23%;
     position: relative;
 }
 
 .product {
     width: 100%;
-    height: 20vh;
-    background-color: #f5e5e3;
+    min-height: 20vh;
+    background-color: var(--e);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin: 10px;
+   /*  border-bottom: 2px solid var(--b); */
 }
 
 .imgP {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    width: 20%;
+    width: 30%;
 }
 
 .fa, .fas {
-    font-size: 2.5rem;
+    font-size: 2rem;
+}
+.fas:hover {
+    color: var(--a)
 }
 
 .details {
-    color: black;
+    color: white;
 }
 
 .details .tittle,
@@ -238,7 +248,7 @@ h2:hover {
 .calculate {
     width: 100%;
     height: 10%;
-    background-color: black;
+    background-color: var(--d);
     font-size: 20px;
     text-align: center;
     color: white;
@@ -249,7 +259,9 @@ h2:hover {
 }
 
 .calculate > .btn{
-    font-size: 1.5rem;
+    font-size: 2rem;
+    position: relative;
+    bottom: 0
 }
 
 .less {
@@ -259,10 +271,11 @@ h2:hover {
 .trash {
     cursor: pointer;
     align-self: flex-start;
+    margin-top: 1vh;
+    margin-right: 1vw;
 }
 
-.offcanvas-body {
-    padding: 0 !important;
-    overflow: auto;
+.buy {
+    font-size: 1em !important;
 }
 
