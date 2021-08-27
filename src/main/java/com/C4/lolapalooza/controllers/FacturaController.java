@@ -101,7 +101,6 @@ public class FacturaController {
 
             for (int i = 0; i < cantArticle.length; i++) {
 
-                System.out.println("entre hasta acá3");
                 Merch product = merchRepository.findByName(nameArticle[i]);
 
                 if (product == null) {
@@ -119,8 +118,7 @@ public class FacturaController {
             }
         }
 
-
-        if (cantEvent.length > 0) {
+        if (cantEvent[0] != null) {
 
             TicketFactura ticketFactura = ticketFacturaRepository.save(new TicketFactura(factura));
 

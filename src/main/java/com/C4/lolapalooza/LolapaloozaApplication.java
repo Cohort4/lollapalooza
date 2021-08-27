@@ -43,7 +43,7 @@ public class LolapaloozaApplication {
 			Client dami = repositoryClient.save(new Client("Dami","Zamora","dami@mindhub.com", passwordEncoder.encode("dami"),true));
 			Client tobi = repositoryClient.save(new Client("Tobi","Pazos","tobi@mindhub.com", passwordEncoder.encode("tobi"),true));
 			Client fede = repositoryClient.save(new Client("Fede","Battcock","fede@mindhub.com", passwordEncoder.encode("fede"),true));
-			Client barto = repositoryClient.save(new Client("Il","Barto","barto@mindhub.com", passwordEncoder.encode("barto"),true));
+			Client barto = repositoryClient.save(new Client("Il","Barto","bartolome.albarracin@hotmail.com", passwordEncoder.encode("barto"),true));
 			Client client2 = repositoryClient.save(new Client("prueba","prueba","prueba@mindhub.com", passwordEncoder.encode("12345"),true));
 
 			Factura factura = facturaRepository.save(new Factura(date.plusDays(2), sofi));
