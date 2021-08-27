@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- BOOTSTRAP -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+
+        <!-- FUENTES -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/globales.css">
+        <link rel="stylesheet" href="css/merchandising.css">
+
+        <title>Shop</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <header class="header">
+                <nav class="nav">
+                    <div class="logo">
+                        <div class="logoLink nav-link"></div>
+                    </div>
+                    <button class="nav-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul class="nav-menu-nav .nav-menu_visible">
+                        <li class="nav-menu-item">
+                            <a href="./index.html" class="nav-menu-link nav-link">Home</a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a href="./events.html" class="nav-menu-link nav-link">Events</a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a href="./previousEvents.html" class="nav-menu-link nav-link">Previous Events</a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a href="./contact.html" class="nav-menu-link nav-link">Contact Us</a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a href="merchandising.html" class="nav-menu-link nav-link text-decoration-underline" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                Shop
+                                <i class="counter far fa-comment glob">{{counter}}</i>
+                            </a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a href="./login.html" class="nav-menu-link nav-link">Log In</a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            <div class="mb-5">
+                <div class="img"></div>
+                <div class="typeFilter">
+                    <!-- <h4 class="text-center text-uppercase">Prendas:</h4> -->
+                    <div class="types">
+                        <!-- TShirt -->
+                        <input type="checkbox" class="btn-check" id="TShirt" name="TShirt" value="TShirt"
+                            v-model="check" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="TShirt">Remeras</label>
+
+                        <!-- Pants -->
+                        <input type="checkbox" class="btn-check" id="Pants" name="Pants" value="Pants" v-model="check"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Pants">Pantalones</label>
+
+                        <!-- Jacket -->
+                        <input type="checkbox" class="btn-check" id="Jacket" name="Jacket" value="Jacket"
+                            v-model="check" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Jacket">Abrigos</label>
+
+                        <!-- Accessories -->
+                        <input type="checkbox" class="btn-check" id="Accessories" name="Accessories" value="Accessories"
+                            v-model="check" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Accessories">Accesorios</label>
+
+                        <!-- Sweater -->
+                        <input type="checkbox" class="btn-check" id="Sweeter" name="Sweeter" value="Sweeter"
+                            v-model="check" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Sweeter">Sweater</label>
+
+                        <!-- Wallet -->
+                        <input type="checkbox" class="btn-check" id="Wallet" name="Wallet" value="Wallet"
+                            v-model="check" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Wallet">Billeteras</label>
+
+                        <!-- Bag -->
+                        <input type="checkbox" class="btn-check" id="Bag" name="Bag" value="Bag" v-model="check"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Bag">Mochilas</label>
+
+                        <!-- Stickers -->
+                        <input type="checkbox" class="btn-check" id="Stickers" name="Stickers" value="Stickers"
+                            v-model="check" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Stickers">Stickers</label>
+
+                        <!-- Hat -->
+                        <input type="checkbox" class="btn-check" id="Hat" name="Hat" value="Hat" v-model="check"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Hat">Sombreros</label>
+
+                        <!-- Cap -->
+                        <input type="checkbox" class="btn-check" id="Cap" name="Cap" value="Cap" v-model="check"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Cap">Gorros</label>
+
+                        <!-- Library -->
+                        <input type="checkbox" class="btn-check" id="Library" name="Library" value="Library"
+                            v-model="check" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Library">Libros</label>
+                    </div>
+                </div>
+                <div class="cont">
+                    <!-- Cards -->
+                    <div class="cardShop m-2 col-lg-2 col-sm-3 col-xs-8 shadow-lg" v-for="d in filter">
+                        <div class="top">
+                            <img :src="d.image" alt="img">
+                        </div>
+                        <div class="addToCart">
+                            <!-- <i @click="add" v-show="i ==false" class="fa fa-cart-arrow-down"></i>
+                        <div class="d-flex flex-row" v-show="i == true">
+                            <button class="but efect m-2" v-show="i == true" @click="addToCart(d)" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add To Cart 
+                            </button>
+                            <button @click="add" class="butCancel m-2" v-show="i == true">x</button>
+                        </div> -->
+                            <button class="btn btn-outline-primary" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasRight" @click="addToCart(d)">Add to cart</button>
+                        </div>
+                        <div class="bottom">
+                            <div class="info">
+                                <div class="tittle">
+                                    <h3>{{ d.name }}</h3>
+                                </div>
+                                <div class="price">{{ formatBalance(d.price) }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carrito -->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+                        <h5 id="offcanvasRightLabel">Carrito de Compras</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <div v-if="cartItems.length === 0" class="mb-5 p-5">
+                            <p class="text-center fs-5">Carrito de Compra vacío</p>
+                        </div>
+                        <div v-else class="products" v-for="item in cartItems" :key="item.id">
+                            <div class="product">
+                                <!-- <div class=""> -->
+                                <img :src="item.image" class="imgP" alt="">
+                                <!-- </div> -->
+                                <div class="details d-flex flex-column align-items-center">
+                                    <div class="tittle mb-2 fs-3">{{item.name}}</div>
+                                    <div class="priceP mb-3 d-flex justify-content-between align-items-center">
+                                        <!-- <select v-model="talles" class="form-select w-25 h-25" aria-label="Default select example">
+                                        <option value="" selected>Talle</option>
+                                        <option v-for="size in cartItems" :value="size.talles">{{size.talles}}</option>
+                                    </select> -->
+                                        <p class="fs-4">{{ formatBalance(item.price) }}</p>
+                                    </div>
+                                    <div class="">
+                                        <!-- <span><button class="btn btn-dark less" @click="less">-</button></span>
+                                    <span class="m-3">{{quantity}}</span>
+                                    <span> <button class="btn btn-dark" @click="more">+</button></span> -->
+                                        <button class="btn btn-dark" @click="decrement(item)" :disabled="item.count<=1">
+                                            < </button>
+                                                <span class="m-3">{{item.count}}</span>
+                                                <button class="btn btn-dark" @click="increment(item)"> > </button>
+                                    </div>
+                                </div>
+                                <div class="trash">
+                                    <i @click="deleteProduct(item)" class="fa fa-trash mt-1 me-1"></i>
+                                    <!-- <div class="subTot d-flex flex-row justify-content-between m-2">
+                                    <p>Subtotal</p>
+                                    <p>{{formatBalance(subTot(subTotal))}}</p>
+                                </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="calculate d-flex flex-column">
+                            <div class="total d-flex flex-row justify-content-between mt-2 me-2 ms-2">
+                                <p>Total</p>
+                                <p>{{ formatBalance(totalPrice) }}</p>
+                            </div>
+                            <a href="/payment.html"><button  class="btn btn-primary mb-5 ms-5 me-5">Comprar</button></a>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="butt chat-btn">
+                    <i class="material-icons"> comment </i>
+                </button>
+
+                <div class="chat-popup">
+                    <div class="chat-area">
+                        <div class="income-msg">
+                            <img src="./assets/avatarChat.png" class="avatar" alt="">
+                            <span class="msg"> Deje una consulta y nos comunicaremos con usted.</span>
+                        </div>
+                    </div>
+
+                    <div class="input-area">
+                        <input type="text">
+
+                        <button class="butt submit"> <i class="material-icons"> send</i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <a class="btn btn-large btn-success" id="exportPDF" @click="generatePDF(1)">Export PDF</a>  -->
+
+            <footer>
+                <div class="footer-bottom">
+                    <div class="container">
+                        <div class="row">
+                            <div class="cohort col-md-3">
+                                <div class="footer-site-info">2021 © <a href="https://discord.gg/J6KJzbCb"
+                                        target="_blank">Cohort 4 | Group 1 | MB </a></div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div id="footer-navigation" class="site-navigation footer-navigation centered-box"
+                                    role="navigation">
+                                    <ul id="footer-menu" class="nav-menu styled clearfix inline-inside">
+                                        <li id="menu-item-26"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-26">
+                                            <a href="#">Support</a>
+                                        </li>
+                                        <li id="menu-item-27"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27">
+                                            <a href="#">Contact Us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="icons col-md-3">
+                                <div id="footer-socials">
+                                    <div class="socials inline-inside socials-colored">
+
+                                        <a href="#" target="_blank" title="Facebook" class="socials-item">
+                                            <i class="fab fa-facebook-f facebook"></i>
+                                        </a>
+                                        <a href="#" target="_blank" title="Twitter" class="socials-item">
+                                            <i class="fab fa-twitter twitter"></i>
+
+                                        </a>
+                                        <a href="#" target="_blank" title="Instagram" class="socials-item">
+                                            <i class="fab fa-instagram instagram"></i>
+                                        </a>
+                                        <a href="#" target="_blank" title="YouTube" class="socials-item">
+                                            <i class="fab fa-youtube youtube"></i>
+                                        </a>
+                                        <a href="#" target="_blank" title="Telegram" class="socials-item">
+                                            <i class="fab fa-telegram telegram"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/vue@next"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.1.1/dist/index.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="js/merchandising.js"></script>
+        <script src="js/globales.js"></script>
+    </body>
+</html>

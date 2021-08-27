@@ -1,0 +1,268 @@
+:root {
+    --a: #D93B18;
+    --b: #5BA69E;
+    --mainColor: rgb(13, 0, 128);
+    --navColor: #181828;
+    --footerColor: black;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+.img {
+    width: 50vw;
+    height: 20vh;
+    background-image: url(../assets/logoShop.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: auto;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 100vw;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.nav-menu-link {
+    padding: 2rem !important;
+}
+
+/* MAIN */
+.carousel-item {
+    max-height: 500px;
+}
+
+.shows {
+    background-color: #000;
+    height: 70px;
+}
+
+@media (min-width: 768px) {
+    .shows {
+        height: 120px;
+    }
+}
+
+.tickets {
+    min-height: 60rem;
+    background-color: #272727;
+    margin: 0;
+}
+
+.tickets ul {
+    padding: 0;
+}
+
+.tickets ul li {
+    list-style: none;
+    padding: 10px 0;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .flex {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.contenedor {
+    width: 90%;
+    margin: 0 auto;
+    min-height: 10rem;
+    border-bottom: 1px solid #fff;
+}
+
+.accordion-item,
+.accordion-button,
+.accordion-button:not(.collapsed) {
+    background-color: #272727 !important;
+    width: 80vw;
+}
+
+@media screen and (max-width: 411px) {
+    .list_bands > .btn{
+        width: 90vw!important;
+    }
+}
+
+h2:hover {
+    color: #FC9779;
+    cursor: pointer;
+}
+
+._2xned {
+    display: flex;
+    align-items: center;
+}
+
+.izih1 {
+    flex: 0 0 auto;
+    height: 8rem;
+    max-width: 35rem;
+    transition: max-width 0.4s;
+}
+
+._2jnik {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.n2q-q {
+    color: rgb(255, 255, 255);
+}
+
+._1yuzm {
+    line-height: 1.5rem;
+    margin-top: calc(0px + -.25rem);
+    margin-bottom: calc(0px + -.25rem);
+}
+
+.tyqvb {
+    white-space: nowrap;
+    margin-right: 12px;
+    font-size: 4rem;
+}
+
+._1bzvu {
+    margin-right: 5px;
+}
+
+._3cmce {
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+._x6jl {
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.list_bands {
+    display: flex;
+    flex-direction: column;
+}
+
+.hide {
+    display: none;
+}
+/* TERMINA MAIN */
+
+/* Carrito */
+.offcanvas-header { 
+    font-size: 1.5rem;
+}
+
+.tittle {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    text-align: left;
+}
+
+.price{
+    font-size: 2rem;
+}
+
+.botonesCarrito{
+    display: flex;
+    justify-content: center;
+}
+
+.cart {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30vw;
+    height: 100vh;
+    background-color: rgb(143, 138, 138);
+    z-index: 1;
+}
+
+.cartTit {
+    color: black;
+    height: 5%;
+}
+
+.products {
+    height: 23%;
+    position: relative;
+}
+
+.product {
+    width: 100%;
+    height: 20vh;
+    background-color: #f5e5e3;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.imgP {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 20%;
+}
+
+.fa, .fas {
+    font-size: 2.5rem;
+}
+
+.details {
+    color: black;
+}
+
+.details .tittle,
+.details .priceP {
+    text-align: center;
+}
+
+.calculate {
+    width: 100%;
+    height: 10%;
+    background-color: black;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.calculate > .btn{
+    font-size: 1.5rem;
+}
+
+.less {
+    width: 2.2vw;
+}
+
+.trash {
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.offcanvas-body {
+    padding: 0 !important;
+    overflow: auto;
+}
+

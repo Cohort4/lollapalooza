@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --a: #D93B18;
+    --b: #5BA69E;
+    --mainColor: rgb(13, 0, 128);
+    --navColor: #181828;
+    --footerColor: black;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.cajaComentarios {
+    display: flex;
+    color: white;
+    background-color: var(--navColor) !important;
+    align-items: center;
+    font-size: 1.5rem;
+    text-align: center;
+    justify-content: center;
+}
+
+.negrita {
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+}
+
+.comentario {
+    display: flex;
+    margin: 0 .5rem;
+    font-size: 1.3rem;
+    align-items: center;
+}
+
+.descripcionComentario {
+    display: flex;
+    border: 1px black !important;
+    border-radius: 20px;
+    background-color: white;
+    color: #000;
+    padding: .5rem;
+    width: 100%;
+}
+
+.imagenesEventos {
+    max-height: 250px;
+}
+
+.butt {
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.chat-area {
+    height: 80%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.input-area {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: .5rem;
+}
+
+input[type="text"] {
+    width: 100%;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 5px;
+    height: 2.6rem;
+}
+
+.submit {
+    padding: 0.25rem 0.5rem;
+    height: 2.6rem;
+    margin-left: 0.5rem;
+    background-color: rgb(167, 161, 161);
+    color: var(--navColor);
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.botones {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cajitaComentarios {
+    display: flex;
+    width: 100%;
+}

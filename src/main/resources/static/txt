@@ -1,0 +1,50 @@
+
+                        <!-- Pants -->
+                        <input type="checkbox" class="btn-check" id="Pants" name="Pants" value="Pants" v-model="check"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Pants">Pantalones</label>
+
+                        <!-- Jacket -->
+                        <input type="checkbox" class="btn-check" id="Jacket" name="Jacket" value="Jacket"
+                            v-model="check" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Jacket">Abrigos</label>
+
+                        <!-- Accessories -->
+                        <input type="checkbox" class="btn-check" id="Accessories" name="Accessories" value="Accessories"
+                            v-model="check" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Accessories">Accesorios</label>
+
+                        <!-- Sweater -->
+                        <input type="checkbox" class="btn-check" id="Sweeter" name="Sweeter" value="Sweeter"
+                            v-model="check" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Sweeter">Sweater</label>
+
+                        <!-- Wallet -->
+                        <input type="checkbox" class="btn-check" id="Wallet" name="Wallet" value="Wallet"
+                            v-model="check" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Wallet">Billeteras</label>
+
+                        <!-- Bag -->
+                        <input type="checkbox" class="btn-check" id="Bag" name="Bag" value="Bag" v-model="check"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Bag">Mochilas</label>
+
+                        <!-- Stickers -->
+                        <input type="checkbox" class="btn-check" id="Stickers" name="Stickers" value="Stickers"
+                            v-model="check" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Stickers">Stickers</label>
+
+                        <!-- Hat -->
+                        <input type="checkbox" class="btn-check" id="Hat" name="Hat" value="Hat" v-model="check"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Hat">Sombreros</label>
+
+                        <!-- Cap -->
+                        <input type="checkbox" class="btn-check" id="Cap" name="Cap" value="Cap" v-model="check"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Cap">Gorros</label>
+
+                        <!-- Library -->
+                        <input type="checkbox" class="btn-check" id="Library" name="Library" value="Library"
+                            v-model="check" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Library">Libros</label>

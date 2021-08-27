@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lollapalooza Administrador </title>
+    
+    <link rel="stylesheet" href="css/globales.css">
+    <link rel="stylesheet" href="css/manager.css">
+    <!-- CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <div class="wrapper">
+            <header class="header">
+
+                <nav class="nav">
+                    <div class="logo">
+                        <a href="./manager.html" class="logoLink nav-link"></a>
+                    </div>
+                    <button class="nav-toggle">
+                        <i class="fas fa-bars"></i>
+                     </button>
+                     <ul class="nav-menu-nav .nav-menu_visible">
+                        <li class="nav-menu-item">
+                            <a href="./events.html" class="nav-menu-link nav-link">Events</a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a href="./merch.html" class="nav-menu-link nav-link">Shop</a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a href="./previousEvents.html" class="nav-menu-link nav-link">Previous Events</a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <button class="btn btn-outline-primary btn-lg " type="submit" @click="logout">Log Out</button>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <main class="main">
+                <div class="divManagerPrincipal">
+                    <div class="divAddUpload">
+                        <label for="">Select an option to Config</label>
+                        <select class="selectManager " v-model="manageType"> 
+                            <option  value="merchandising">Merchandising</option>  
+                            <option  value="event">Events</option>
+                            <option  value="comment">Comments</option>
+                            <option  value="client">Clients</option>
+                         </select>
+                    </div>
+
+                    <div class="divManagerMerch" v-show="manageType==='merchandising'">
+                        <div class="divAddUpload">
+                            <label for="">Select an option to Merchandising</label>
+                            <select class="selectManager " v-model="merchandisingType">   
+                                <option  value="Add">Add new product</option>
+                                <option  value="Upload">Edit product</option>
+                                <option  value="Delete">Delete product</option>
+                             </select>
+                        </div>
+                        <form class="formAdd" v-show="merchandisingType==='Add'" @submit.prevent="addMerchandising" >
+                            <div class="divAdd">
+                                <label class="labelDiv" for="">Type</label>
+                                <select class="inputDiv" v-model="productType">   
+                                    <option class="inputDiv" value="TShirt" >TShirt</option>
+                                    <option class="inputDiv" value="Pants">Pants</option>
+                                    <option class="inputDiv" value="Jacket">Jacket</option>
+                                    <option class="inputDiv" value="Accessories">Accessories</option>
+                                    <option class="inputDiv" value="Sweeter">Sweeter</option>
+                                    <option class="inputDiv" value="Wallet">Wallet</option>
+                                    <option class="inputDiv" value="Bag">Bag</option>
+                                    <option class="inputDiv" value="Stickers">Stickers</option>
+                                    <option class="inputDiv" value="Hat">Hat</option>
+                                    <option class="inputDiv" value="Cap">Cap</option>
+                                    <option class="inputDiv" value="Library">Library</option>
+                                 </select>
+                            </div>
+
+                            <div class="divAdd">
+                                <label class="labelDiv">Name</label>
+                                <input class="inputDiv" v-model="productName" id="productName" name="productName" required maxlength="20"></input>
+                            </div>
+                            <div class="divAdd">
+                                <label class="labelDiv">Stock</label>
+                                <input class="inputDiv" v-model="stockProduct" id="stockProduct" name="stockProduct" required min="1" max="1000">
+                            </div>
+                            <div class="divAdd">
+                                <label class="labelDiv">Price</label>
+                                <input class="inputDiv" v-model="priceProduct" id="priceProduct" name="priceProduct" required min="1" max="10000">
+                            </div>
+                            <div class="divAdd">
+                                <label class="labelDiv">Descripcion</label>
+                                <input class="inputDiv" v-model="descriptionProduct" id="descriptionProduct" name="descriptionProduct" required maxlength="20">
+                            </div>
+                            <div class="divAdd">
+                                <label class="labelDiv">Sizes</label>
+                                <input class="inputDiv" v-model="tallesProduct" id="tallesProduct" name="tallesProduct">
+                            </div>
+                           <!--  <div class="divAdd">
+                                <label class="labelDiv">Image</label>
+                                <input class="inputDiv" v-model="imageProduct" type="file" id="imageProduct" name="imageProduct">
+                            </div> -->
+                            <div class="divAdd text-center">
+                                <button class="btn btn-secondary btn-lg mt-2" type="submit">Add product</button>
+                            </div>
+                        </form>
+                        <form class="formAdd" v-show="merchandisingType==='Upload'" @submit.prevent="editMerchandising">
+                            <div class="divAdd">
+                                <label class="labelDiv">Product</label>
+                                <select class="inputDiv" v-model="productSelected">   
+                                    <option class="inputDiv" value="">products</option>
+                                    <option class="inputDiv" v-for="product in products">{{product.name}}</option>
+                                </select>
+                            </div>
+                            <div v-if="productSelected" class="text-center">
+                                <div class="formAdd">
+                                    <table class="table table-striped w-100">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">Image</th>
+                                                <th class="text-center">Type</th>
+                                                <th class="text-center">Name</th>
+                                                <th class="text-center">Price</th>
+                                                <th class="text-center">Stock</th>
+                                                <th class="text-center">Sizes</th>
+                                                <th class="text-center"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td data-label="Image" class="text-center"> <img class="tdImage" :src=datoName(productSelected).image></td>
+                                                <td data-label="Type" class="text-center">{{datoName(productSelected).productType}}</td>
+                                                <td data-label="Name" class="text-center">{{datoName(productSelected).name}}</td>
+                                                <td data-label="Price" class="text-center">${{datoName(productSelected).price}}</td>
+                                                <td data-label="Stock" class="text-center">{{datoName(productSelected).stock}}</td>
+                                                <td data-label="Talles" class="text-center">{{datoName(productSelected).talles}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="divAdd">
+                                        <label>Enter fields to modify</label>
+                                    </div>
+                                    <div class="divAdd">
+                                        <label class="labelDiv">Stock</label>
+                                        <input class="inputDiv" v-model="editStock" id="editStock" name="editStock" required min="1" max="1000">
+                                    </div>
+                                    <div class="divAdd">
+                                        <label class="labelDiv">Price</label>
+                                        <input class="inputDiv" v-model="editPrice" id="editPrice" name="editPrice" required min="1" max="10000">
+                                    </div>
+                                    <div class="divAdd">
+                                        <button class="btn btn-secondary btn-lg mt-2 " type="submit">Edit Product</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <form class="formAdd" v-show="merchandisingType==='Delete'" @submit.prevent="deleteMerchandising">
+                            <div class="divAdd">
+                                <label class="labelDiv">Product</label>
+                                <select class="inputDiv" v-model="productSelected">   
+                                    <option class="inputDiv" value="">products</option>
+                                    <option class="inputDiv" v-for="product in products">{{product.name}}</option>
+                                </select>
+                            </div>
+                            <div v-if="productSelected" class="text-center">
+                                <div class="formAdd">
+                                    <table class="table table-striped w-100">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">Image</th>
+                                                <th class="text-center">Type</th>
+                                                <th class="text-center">Name</th>
+                                                <th class="text-center">Price</th>
+                                                <th class="text-center">Stock</th>
+                                                <th class="text-center">Sizes</th>
+                                                <th class="text-center">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td data-label="Image" class="text-center"> <img class="tdImage" :src=datoName(productSelected).image></td>
+                                                <td data-label="Type"  class="text-center">{{datoName(productSelected).productType}}</td>
+                                                <td data-label="Name"  class="text-center">{{datoName(productSelected).name}}</td>
+                                                <td data-label="Price" class="text-center">${{datoName(productSelected).price}}</td>
+                                                <td data-label="Stock" class="text-center">{{datoName(productSelected).stock}}</td>
+                                                <td data-label="Stock" class="text-center">{{datoName(productSelected).talles}}</td>
+                                                <td data-label="Stock" class="text-center">{{datoName(productSelected).status}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="deleteActiveMerchandising">
+                                        <!-- <div class="text-center">
+                                            <button class="btn btn-secondary btn-sm " type="submit">Delete Product</button>
+                                        </div> -->                                 
+                                        <div class="text-center">
+                                            <button class="btn btn-secondary btn-lg mt-2" type="button" @click="activeProduct">Change Status</button>
+                                        </div>    
+                                    </div>                              
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="divManagerEvent" v-show="manageType==='event'">
+                        <div class="divAddUpload">
+                            <label for="">Select an option to Event</label>
+                            <select class="selectManager " v-model="eventType"> 
+                                <option  value="Show">Show events</option> 
+                                <option  value="Add">Add new event</option>
+                                <option  value="Upload">Edit event date</option>                                
+                             </select>
+                        </div>
+                        <div class="formAdd" v-show="eventType==='Show'"  >
+                            <template v-if="events.length > 0">
+                                <table class="table table-striped w-100" >
+                                    <thead >
+                                        <tr>     
+                                            
+                                            <th class="text-center">EventName</th>                   
+                                            <th class="text-center">Bands</th>
+                                            <th class="text-center">Date Concert</th>    
+                                            <th class="text-center">Price</th>    
+                                            <th class="text-center">Status</th>                                         
+                                            <th></th>                                                
+                                        </tr>                                               
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="event in events"> 
+                                               
+                                            <td data-label="Comment" class="text-center">{{event.name}}</td>                          
+                                            <td data-label="Comment" class="text-center">{{event.bands}}</td>                                                
+                                            <td data-label="Date"class="text-center">{{event.dateEvent}}</td>
+                                            <td data-label="Date"class="text-center">${{event.price}}</td>    
+                                            <td data-label="Comment" class="text-center">{{event.status}}</td>                                       
+                                            <td data-label="Accion"class="text-center"><button class="btn btn-secondary btn-lg" type="button" @click="deleteEvent(event)">Change status</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </template>
+                            <template v-else>
+                                <div class="divCards d-flex flex-column align-items-center">
+                                    <div class="text-center"><h2>No comments yet.</h2></div>                                    
+                                </div>    
+                            </template>
+                        </div>
+                        <form class="formAdd" v-show="eventType==='Add'" @submit.prevent="addEvent" >
+                            <div class="divAdd">
+                                <label class="labelDiv">Bands</label>
+                                <input class="inputDiv" v-model="bandsEvent" id="bandsEvent" name="bandsEvent" required maxlength="40"></input>
+                            </div>                            
+                            <div class="divAdd">
+                                <label class="labelDiv">Price</label>
+                                <input class="inputDiv" v-model="priceEvent" id="priceEvent" name="priceEvent" required min="1" max="10000">
+                            </div>  
+                            <div class="divAdd">
+                                <label class="labelDiv">Date</label>
+                                <input class="inputDiv" type="date" v-model="dateEvent" id="dateEvent" name="dateEvent" required >
+                            </div>  
+                            <select  v-model="siteEvent">   
+                                <option  value="">Choose a Site</option>
+                                <option v-for="site in sites">{{site.location}}</option>
+                            </select>    
+                            <div class="divAdd text-center">
+                                <button class="btn btn-secondary btn-lg mt-2" type="submit">Add Event</button>
+                            </div>
+                        </form>
+
+                        <form class="formAdd" v-show="eventType==='Upload'" @submit.prevent="editEvent" >
+                            <div class="divAdd">
+                                <label class="labelDiv">Event</label>
+                                <select class="inputDiv" v-model="eventSelected">   
+                                    <option class="inputDiv" value="">Events</option>
+                                    <option class="inputDiv" v-for="event in events">{{event.name}}</option>
+                                </select>
+                            </div>
+                            <div v-if="eventSelected" class="text-center">
+                                <div class="formAdd">
+                                    <table class="table table-striped w-100">
+                                        <thead >
+                                            <tr>                                                      
+                                                <th class="text-center">EventName</th>                  
+                                                <th class="text-center">Bands</th>
+                                                <th class="text-center">Date Concert</th>    
+                                                <th class="text-center">Price</th>       
+                                                <th class="text-center">Status</th>                                      
+                                                <th></th>                                                
+                                            </tr>                                               
+                                        </thead>
+                                        <tbody>
+                                            <tr>                                                
+                                                <td data-label="bands" class="text-center">{{datoNameEvent(eventSelected).name}}</td>
+                                                <td data-label="bands" class="text-center">{{datoNameEvent(eventSelected).bands}}</td>
+                                                <td data-label="date" class="text-center">{{datoNameEvent(eventSelected).dateEvent}}</td>
+                                                <td data-label="price" class="text-center">${{datoNameEvent(eventSelected).price}}</td>
+                                                <td data-label="Comment" class="text-center">{{datoNameEvent(eventSelected).status}}</td>                                             
+                                            
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="divAdd">
+                                        <label>Enter fields to modify</label>
+                                    </div>    
+                                    <div class="divAdd">
+                                        <label class="labelDiv">Date</label>
+                                        <input class="inputDiv" type="date" v-model="dateEvent" id="dateEvent" name="dateEvent" required >
+                                    </div>                              
+                                    
+                                    <div class="divAdd">
+                                        <button class="btn btn-secondary btn-lg mt-2 " type="submit">Edit Event</button>
+                                    </div>
+                                </div>
+                            </div>                               
+                              
+                           
+                            
+                        </form>
+
+
+                    </div>
+                    <div class="divManagerComment" v-show="manageType==='comment'">                        
+                            <template v-if="comments.length > 0">
+                                <table class="table table-striped w-100" >
+                                    <thead >
+                                        <tr>
+                                            <th class="text-center">User</th>
+                                            <th class="text-center">Comment</th>
+                                            <th class="text-center">Date</th>                                                
+                                            <th></th>                                                
+                                        </tr>                                               
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="comment in comments">
+                                            <td data-label="User"class="text-center">{{comment.email}}</td>
+                                            <td data-label="Comment" class="text-center">{{comment.description}}</td>                                                
+                                            <td data-label="Date"class="text-center">{{comment.date}}</td>                                           
+                                            <td data-label="Accion"class="text-center"><button class="btn btn-secondary btn-lg" type="button" @click="deleteComment(comment)">Delete Comment</button></td>
+                                        </tr>
+                                     </tbody>
+                                </table>
+                            </template>
+                            <template v-else>
+                                <div class="divCards d-flex flex-column align-items-center">
+                                    <div class="text-center"><h2>No comments yet.</h2></div>                                    
+                                </div>    
+                            </template>                        
+                    </div>
+                    <div class="divManagerClient" v-show="manageType==='client'">                        
+                        <template v-if="clients.length > 0">
+                            <table class="table table-striped w-100" >
+                                    <thead >
+                                            <tr>
+                                                <th class="text-center">First Name</th>
+                                                <th class="text-center">Last Name</th>
+                                                <th class="text-center">Email</th>                                                
+                                                <th class="text-center">Status</th>    
+                                                <th></th>                                            
+                                            </tr>                                               
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="client in clients">
+                                            <td data-label="User"class="text-center">{{client.firstName}}</td>
+                                            <td data-label="Comment" class="text-center">{{client.lastName}}</td>                                                
+                                            <td data-label="Date"class="text-center">{{client.email}}</td>     
+                                            <td data-label="Date"class="text-center">{{client.status}}</td>                                      
+                                            <td data-label="Accion"class="text-center"><button class="btn btn-secondary btn-lg" type="button" @click="deleteUser(client)">Change Status</button></td>
+                                        </tr>
+                                    </tbody>
+                            </table>
+                        </template>
+                        <template v-else>
+                            <div class="divCards d-flex flex-column align-items-center">
+                                <div class="text-center"><h2>No clients found.</h2></div>                                    
+                            </div>    
+                        </template>
+                    </div>                                     
+                 </div>                
+            </main>           
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="js/manager.js"></script>
+    <script src="js/globales.js"></script>
+</body>
+</html>

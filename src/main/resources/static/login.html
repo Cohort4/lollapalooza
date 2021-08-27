@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="css/login.css">
+
+</head>
+
+<body>
+    <div id="app">
+        <div class="logoLogin"></div>
+        <form class="form" @submit.prevent="login(sign)">
+            <div class="input">
+                <input v-show="signUp == true" type="text" class="input" placeholder="First Name" v-model="firstName" />
+                <input v-show="signUp == true" type="text" class="input" placeholder="Last Name" v-model="lastName" />
+                <input type="email" class="input" placeholder="Email" v-model="email" />
+                <input type="password" class="input" placeholder="Password" v-model="psw" />
+            </div>
+            <input class="submit" type="submit" :value="sign" v-text="sign">
+            <a @click="signUpOrIn" class="sign" v-text="signU"></a>
+        </form>
+    </div>
+    <!-- script axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- script vue -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <!-- Swal -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/login.js"></script>
+</body>
+
+</html>
