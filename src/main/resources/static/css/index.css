@@ -6,7 +6,7 @@ html{
 .main {
     background-image: url("../img/mainBackground.jpg");
     background-size: cover;
-    height: 80vh !important;
+    height: 79vh !important;
 }
 
 .showInfo > a{

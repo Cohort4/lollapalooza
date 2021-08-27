@@ -190,20 +190,20 @@ h2:hover {
     justify-content: center;
 }
 
-.cart {
+/* .cart {
     position: absolute;
     top: 0;
     right: 0;
-    width: 30vw;
+    width: 40vw;
     height: 100vh;
     background-color: var(--d);
     z-index: 1;
-}
+} */
 
-.cartTit {
+/* .cartTit {
     color: black;
     height: 5%;
-}
+} */
 
 .products {
     min-height: 23%;
@@ -212,13 +212,13 @@ h2:hover {
 
 .product {
     width: 100%;
-    min-height: 20vh;
+    height: 20vh;
     background-color: var(--e);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin: 10px;
+    margin-bottom: 10px;
    /*  border-bottom: 2px solid var(--b); */
 }
 
@@ -260,8 +260,6 @@ h2:hover {
 
 .calculate > .btn{
     font-size: 2rem;
-    position: relative;
-    bottom: 0
 }
 
 .less {

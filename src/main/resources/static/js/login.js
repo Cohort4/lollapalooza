@@ -45,11 +45,11 @@ const app = Vue.createApp({
                             } else {
                                 window.location.href = "/index.html"
 
-                            }
-                        }, 1000)
-                    })
-                    .catch(err => swal(err.data.response))
-            }
+                        } 
+                    }, 1000) })
+                    .catch(err => {swal("Don't permission")
+                    alert("chauuu")})
+            } 
             /* Registro */
             if (sing == "Sign Up") {
                 axios.post('/api/clients', "firstName=" + this.firstName + "&lastName=" + this.lastName + "&email=" + this.email + "&password=" + this.psw,
@@ -69,10 +69,13 @@ const app = Vue.createApp({
         }
     },
 
+<<<<<<< HEAD
+=======
 
 
 
 
+>>>>>>> 7fdee8fafd33dc78f6d11dfb3e29757de440fad6
     computed: {
     },
 

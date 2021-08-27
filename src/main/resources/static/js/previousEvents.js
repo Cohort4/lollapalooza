@@ -20,26 +20,26 @@ const app = Vue.createApp({
     methods: {
         postNewComment(x) {
             axios.post(`/api/addComment`, `id=${x}&description=${this.description}`)
-            .then(() => {
+                .then(() => {
 
-                alert("Comentario enviado")
-                location.reload() 
-            })
-            .catch( ()=> 
-                
-                Swal.fire({
-                    title: 'You have to be logged in to comment',
-                    text: "Do you want to log in?",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, I want to log in'
-                  }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href=("/login.html")
-                    }
-                  }))
+                    alert("Comentario enviado")
+                    location.reload()
+                })
+                .catch(() =>
+
+                    Swal.fire({
+                        title: 'You have to be logged in to comment',
+                        text: "Do you want to log in?",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, I want to log in'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = ("/login.html")
+                        }
+                    }))
         },
         editComment(x) {
             axios.post(`/api/editComment`, `description=${this.description}&idComment=${x}`)
@@ -78,20 +78,3 @@ const app = Vue.createApp({
 })
 
 app.mount("#app")
-
-/* console.log(document.cookie.match(/JSESSIONID=[^;]+/))
-var session_id = /SESS\w*ID=([^;]+)/i.test(document.cookie) ? RegExp.$1 : false;
-console.log(session_id); */
-/* navbar */
-/* const navToggle = document.querySelector(".nav-toggle");
-const navMenu = document.querySelector(".nav-menu-nav");
-
-navToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("nav-menu_visible");
-
-    if (navMenu.classList.contains("nav-menu_visible")) {
-        navToggle.setAttribute("aria-label", "Cerrar menú");
-    } else {
-        navToggle.setAttribute("aria-label", "Abrir menú");
-    }
-}); */
