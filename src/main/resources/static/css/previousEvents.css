@@ -9,6 +9,10 @@ html {
 .mainContainer {
     display: flex;
     flex-direction: column;
+    background-color: var(--e);
+}
+h1{
+    color: white
 }
 
 .cajaComentarios {
