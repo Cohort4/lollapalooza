@@ -237,7 +237,7 @@
                                     <tbody>
                                         <tr v-for="event in events"> 
                                                
-                                            <td data-label="Comment" class="text-center">{{event.name}}</td>                          
+                                            <td data-label="Comment" class="text-center">{{event.nameEvent}}</td>                          
                                             <td data-label="Comment" class="text-center">{{event.bands}}</td>                                                
                                             <td data-label="Date"class="text-center">{{event.dateEvent}}</td>
                                             <td data-label="Date"class="text-center">${{event.price}}</td>    
@@ -280,7 +280,7 @@
                                 <label class="labelDiv">Event</label>
                                 <select class="inputDiv" v-model="eventSelected">   
                                     <option class="inputDiv" value="">Events</option>
-                                    <option class="inputDiv" v-for="event in events">{{event.name}}</option>
+                                    <option class="inputDiv" v-for="event in events">{{event.nameEvent}}</option>
                                 </select>
                             </div>
                             <div v-if="eventSelected" class="text-center">
@@ -298,7 +298,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>                                                
-                                                <td data-label="bands" class="text-center">{{datoNameEvent(eventSelected).name}}</td>
+                                                <td data-label="bands" class="text-center">{{datoNameEvent(eventSelected).nameEvent}}</td>
                                                 <td data-label="bands" class="text-center">{{datoNameEvent(eventSelected).bands}}</td>
                                                 <td data-label="date" class="text-center">{{datoNameEvent(eventSelected).dateEvent}}</td>
                                                 <td data-label="price" class="text-center">${{datoNameEvent(eventSelected).price}}</td>

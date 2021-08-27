@@ -8,6 +8,9 @@ html{
     background-size: cover;
     height: 79vh !important;
 }
+h1{
+    color: white
+}
 
 .showInfo > a{
     text-decoration: none;

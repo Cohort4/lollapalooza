@@ -67,7 +67,7 @@ const app = Vue.createApp({
         datoNameEvent(event){   
           
           if (event!=null){
-          prueba=this.events.filter((e=>e.name==event))         
+          prueba=this.events.filter((e=>e.nameEvent==event))         
           return prueba[0]
           }
       },                

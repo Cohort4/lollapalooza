@@ -1,4 +1,9 @@
+body {
+    background-color: var(--d);
+}
+
 /* CARDS SHOP */
+
 .img {
     width: 50vw;
     height: 20vh;
@@ -83,6 +88,10 @@ img {
 
 .btn {
     font-size: 1.4rem;
+    background-color: var(--e);
+}
+.btn:hover{
+    background-color: var(--b)
 }
 
 .but {

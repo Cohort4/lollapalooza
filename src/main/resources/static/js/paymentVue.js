@@ -75,6 +75,7 @@ const app = Vue.createApp({
                                     popup: 'animate__animated animate__fadeOutUp'
                                 }
                             })
+                            /* sessionStorage.removeItem(SESSIONSTATUS) */
                             axios.post("/api/clients/current/export/pdf", "numberFactura=" + this.idF, { responseType: 'blob' })
 
                                 .then((response) => {
@@ -84,7 +85,8 @@ const app = Vue.createApp({
                                     link.setAttribute('download', 'Lollapalooza N° ' + this.idF + '.pdf');
                                     document.body.appendChild(link);
                                     link.click();
-                                    sessionStorage.clear();
+                                    sessionStorage.clear() 
+                                    
                                 })
                                 .catch(err => {
 

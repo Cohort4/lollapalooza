@@ -69,13 +69,6 @@ const app = Vue.createApp({
         }
     },
 
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> 7fdee8fafd33dc78f6d11dfb3e29757de440fad6
     computed: {
     },
 
