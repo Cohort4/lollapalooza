@@ -51,7 +51,7 @@ const app = Vue.createApp({
 
             if (!item.cart) {
              
-                const newItem = Object.assign({}, item, { countMerch: 1 });
+                const newItem = Object.assign({}, item, { countMerch: 1, count: 1 });
                 item.cart = true;
             
                 this.cartItems.push(newItem);
@@ -119,7 +119,7 @@ const app = Vue.createApp({
         totalPrice() {
             let totalPrice = 0
             for (let i = 0; i < this.cartItems.length; i++) {
-                totalPrice += this.cartItems[i].price * this.cartItems[i].countMerch
+                totalPrice += (this.cartItems[i].price * this.cartItems[i].count) + (this.cartItems[i].price * this.cartItems[i].countMerch)
             }
             sessionStorage.setItem('TOTALPRICE', JSON.stringify(totalPrice));
             return totalPrice
