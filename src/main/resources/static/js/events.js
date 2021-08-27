@@ -13,6 +13,7 @@ const app = Vue.createApp({
             quantity: 0,
             subtotal: 0,
             item: {},
+            logged: sessionStorage.getItem("LOGGED") != null ? sessionStorage.getItem("SESSIONSTATUS") : "false"
         }
     },
 
@@ -97,9 +98,11 @@ const app = Vue.createApp({
             sessionStorage.setItem('SESSIONSTATUS', JSON.stringify(this.cartItems))
             this.cartItems = JSON.parse(sessionStorage.getItem("SESSIONSTATUS"));
         },
-        logOut() {
+        loggedOut() {
+            sessionStorage.clear();
             axios.post('/api/logout').then(response => window.location.href = "/index.html")
                 .catch(error => Swal.fire(error.response.data))
+            
         },
         accordionCollapse(id){
             for (let i = 0; i < this.collapse.length; i++) {
@@ -110,7 +113,7 @@ const app = Vue.createApp({
             }
             return collapse;
         },
-
+       
     },
     computed: {
         totalPrice() {

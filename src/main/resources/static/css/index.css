@@ -1,6 +1,8 @@
-body {
-    height: 100%;
+html{
+    height: 100vh;
 }
+
+
 .main {
     background-image: url("../img/mainBackground.jpg");
     background-size: cover;

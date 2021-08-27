@@ -4,6 +4,7 @@ const app = Vue.createApp({
         return {
             eventosPrevios: [],
             description: '',
+            logged: sessionStorage.getItem("LOGGED") != null ? sessionStorage.getItem("SESSIONSTATUS") : "false"
         }
     },
 
@@ -54,9 +55,11 @@ const app = Vue.createApp({
                 .then(alert("Comentario eliminado"))
                 .then(location.reload())
         },
-        logOut() {
-            axios.post('/api/logout').then(response => window.location.href = "/web/index.html")
+        loggedOut() {
+            sessionStorage.clear();
+            axios.post('/api/logout').then(response => window.location.href = "/index.html")
                 .catch(error => Swal.fire(error.response.data))
+                
         },
         getJSessionId() {
             var jsId = document.cookie.match(/JSESSIONID=[^;]+/);
