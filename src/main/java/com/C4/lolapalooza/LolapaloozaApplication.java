@@ -94,17 +94,17 @@ public class LolapaloozaApplication {
 
 			//Eventos Previos
 
-			PreviousEvent previousEvent = previousEventRepository.save(new PreviousEvent("TARDE DEL DIA 1","./img/img-previous/1.jpg"));
-			PreviousEvent previousEvent1 = previousEventRepository.save(new PreviousEvent("'LET ME PLAY GUITAR WITH YOU'", "./img/img-previous/2.jpg"));
-			PreviousEvent previousEvent2 = previousEventRepository.save(new PreviousEvent("ARCTIC MONKEYS","./img/img-previous/3.jpg"));
-			PreviousEvent previousEvent3 = previousEventRepository.save(new PreviousEvent("NOCHE DEL DIA 1","./img/img-previous/4.jpg"));
-			PreviousEvent previousEvent4 = previousEventRepository.save(new PreviousEvent("LA MONA JIMENEZ","./img/img-previous/5.jpg"));
-			PreviousEvent previousEvent5 = previousEventRepository.save(new PreviousEvent("PRIMERA FILA","./img/img-previous/6.jpg"));
-			PreviousEvent previousEvent6 = previousEventRepository.save(new PreviousEvent("DJ TIESTO","./img/img-previous/7.jpg"));
-			PreviousEvent previousEvent7 = previousEventRepository.save(new PreviousEvent("POSTALES DEL LOLLAPALOOZA","./img/img-previous/8.jpg"));
-			PreviousEvent previousEvent8 = previousEventRepository.save(new PreviousEvent("NOCHE DEL DIA 2","./img/img-previous/9.jpg"));
-			PreviousEvent previousEvent9 = previousEventRepository.save(new PreviousEvent("TARDE DEL DIA 3","./img/img-previous/10.jpg"));
-			PreviousEvent previousEvent10 = previousEventRepository.save(new PreviousEvent("FITO PAEZ","./img/img-previous/11.jpg"));
+			PreviousEvent previousEvent = previousEventRepository.save(new PreviousEvent("Afternoon of day 2","./img/img-previous/1.jpg"));
+			PreviousEvent previousEvent1 = previousEventRepository.save(new PreviousEvent("'Let me play guitar with you'", "./img/img-previous/2.jpg"));
+			PreviousEvent previousEvent2 = previousEventRepository.save(new PreviousEvent("Arctic Monkeys","./img/img-previous/3.jpg"));
+			PreviousEvent previousEvent3 = previousEventRepository.save(new PreviousEvent("Night day 1","./img/img-previous/4.jpg"));
+			PreviousEvent previousEvent4 = previousEventRepository.save(new PreviousEvent("La Mona Jimenez","./img/img-previous/5.jpg"));
+			PreviousEvent previousEvent5 = previousEventRepository.save(new PreviousEvent("First Row","./img/img-previous/6.jpg"));
+			PreviousEvent previousEvent6 = previousEventRepository.save(new PreviousEvent("Dj Tiesto","./img/img-previous/7.jpg"));
+			PreviousEvent previousEvent7 = previousEventRepository.save(new PreviousEvent("Postcards from LollaPalooza","./img/img-previous/8.jpg"));
+			PreviousEvent previousEvent8 = previousEventRepository.save(new PreviousEvent("Night day 2","./img/img-previous/9.jpg"));
+			PreviousEvent previousEvent9 = previousEventRepository.save(new PreviousEvent("Afternoon of day 1","./img/img-previous/10.jpg"));
+			PreviousEvent previousEvent10 = previousEventRepository.save(new PreviousEvent("Fito Paez","./img/img-previous/11.jpg"));
 
 			Comment comment1 = commentRepository.save(new Comment("Muy Bueno", LocalDate.now(),previousEvent,client2));
 			Comment comment = commentRepository.save(new Comment("Fotón!", LocalDate.now(), previousEvent9, sofi));

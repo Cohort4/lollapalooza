@@ -2,13 +2,8 @@
     margin: 0;
     padding: 0;
 }
-
-:root {
-    --a: #D93B18;
-    --b: #5BA69E;
-    --mainColor: rgb(13, 0, 128);
-    --navColor: #181828;
-    --footerColor: black;
+html {
+    width: 100%;
 }
 
 .mainContainer {
@@ -17,13 +12,13 @@
 }
 
 .cajaComentarios {
-    display: flex;
     color: white;
     background-color: var(--navColor) !important;
     align-items: center;
     font-size: 1.5rem;
     text-align: center;
-    justify-content: center;
+    width: 40vw;
+    border-radius: 25px;
 }
 
 .negrita {
@@ -70,20 +65,22 @@
     display: flex;
     justify-content: center;
     margin-bottom: .5rem;
+    width: 90%;
 }
 
 input[type="text"] {
-    width: 100%;
+    width: 80%;
     border: 1px solid #ccc;
     font-size: 1rem;
     text-align: center;
-    border-radius: 5px;
-    height: 2.6rem;
+    border-radius: 20px;
+    height: 3rem;
+    margin-bottom: 2vh;
 }
 
 .submit {
     padding: 0.25rem 0.5rem;
-    height: 2.6rem;
+    height: 3rem;
     margin-left: 0.5rem;
     background-color: rgb(167, 161, 161);
     color: var(--navColor);
@@ -99,5 +96,28 @@ input[type="text"] {
 
 .cajitaComentarios {
     display: flex;
-    width: 100%;
+    width: 90%;
+}
+
+@media (max-width: 650px) {
+    .cajaComentarios {
+        color: white;
+        background-color: var(--navColor) !important;
+        align-items: center;
+        font-size: 1.5rem;
+        text-align: center;
+        width: 90%;
+        border-radius: 25px;
+    }
+    
+    .descripcionComentario {
+        display: flex;
+        flex-direction: column;
+        border: 1px black !important;
+        border-radius: 20px;
+        background-color: white;
+        color: #000;
+        padding: .5rem;
+        width: 100%;
+    }
 }

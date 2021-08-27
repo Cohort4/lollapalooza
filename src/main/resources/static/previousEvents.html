@@ -67,11 +67,12 @@
                 </nav>
             </header>
             <main class="mainContainer">
-                <h1 class="text-center display-4 my-3">Imagenes de los eventos anteriores</h1>
-                <div class="card-columns">
-                    <div class="card cajaComentarios" v-for="evento in eventosPrevios">
+                <h1 class="text-center display-4 my-3 m-5 font-weight-bold">Previous Events</h1>
+                <!-- <div class="card-columns row center"> -->
+                <div class="d-flex flex-row flex-wrap align-center justify-content-evenly">
+                    <div class="d-flex flex-column mb-5 cajaComentarios" v-for="evento in eventosPrevios">
                         <div class="card-header">
-                            <h3>{{evento.name}}</h3>
+                            <h1>{{evento.name}}</h1>
                             <img :src="evento.image" alt="" class="card-img-top imagenesEventos" :id="evento.id">
                         </div>
                         <div class="card-body cajitaComentarios" v-for="x in evento.comments">
@@ -87,9 +88,9 @@
 
                         </div>
                         <div class="input-area">
-                            <input type="text" placeholder="Deja un comentario!" @Input="description = $event.target.value">
+                            <input type="text" class="ms-2 me-2" placeholder="Do you want to leave a comment?" @Input="description = $event.target.value">
 
-                            <button @Click="postNewComment(evento.id)" class="butt submit"> <i class="material-icons"> send</i></button>
+                            <button @Click="postNewComment(evento.id)" class="butt submit me-2"> <i class="material-icons"> send</i></button>
                         </div>
                     </div>
                 </div>

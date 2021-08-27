@@ -42,7 +42,8 @@ const app = Vue.createApp({
 
                         } 
                     }, 1000) })
-                    .catch(err => swal(err.data.response))
+                    .catch(err => {swal("Don't permission")
+                    alert("chauuu")})
             } 
             /* Registro */
             if (sing == "Sign Up") {
@@ -62,10 +63,6 @@ const app = Vue.createApp({
             }
         }
     },
-
-   
-
-    
 
     computed: {
     },

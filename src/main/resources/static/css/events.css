@@ -212,7 +212,7 @@ h2:hover {
 
 .product {
     width: 100%;
-    min-height: 20vh;
+    height: 20vh;
     background-color: var(--e);
     display: flex;
     flex-direction: row;
@@ -260,8 +260,6 @@ h2:hover {
 
 .calculate > .btn{
     font-size: 2rem;
-    position: relative;
-    bottom: 0
 }
 
 .less {
