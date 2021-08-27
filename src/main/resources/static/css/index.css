@@ -251,7 +251,22 @@ input[type="text"] {
 @media (max-width: 768px) { }
 
 /* Small devices (landscape phones, 576px and up) */
-@media (max-width: 576px) { }
+@media (max-width: 576px) { 
+    .welcomeTitle > h1{
+        font-size: 3rem;
+    }
+    
+    .welcomeTitle > h3{
+        font-size: 3.5rem;
+    }
+
+    .main{
+        height: 68vh!important;
+    }
+    .chat-popup {
+        width: 70vw;
+    }
+}
 
 
 

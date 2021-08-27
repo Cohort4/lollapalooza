@@ -18,7 +18,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/rest/**").hasAuthority("ADMIN")
-                .antMatchers("/manager.html", "manager.css", "manager.js").hasAuthority("ADMIN")
+                .antMatchers("/style.css", "/manager.html", "manager.css", "manager.js").hasAuthority("ADMIN")
                 .antMatchers("/**").permitAll();
 
 
