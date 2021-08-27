@@ -145,7 +145,6 @@ public class FacturaController {
             }// FIN FOR
 
         }
-
         return new ResponseEntity<>(factura.getId(), HttpStatus.OK);
     }
 }

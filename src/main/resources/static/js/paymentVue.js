@@ -34,36 +34,26 @@
 
      created() {
 
-        
-
          this.productsArray = this.repositorioLocal.map(x => x.name);
          this.productsArray = this.productsArray.filter(x => x != undefined)
-         console.log(this.productsArray);
+
 
          this.cantProductsArray = this.repositorioLocal.map(x => x.countMerch)
          this.cantProductsArray = this.cantProductsArray.filter(x => x != undefined);
-         console.log(this.cantProductsArray);
+   
 
          this.nameEvent = this.repositorioLocal.map(x => x.nameEvent);
          this.nameEvent = this.nameEvent.filter(x => x != undefined);
-         console.log(this.nameEvent);
-
+    
          
          this.cantEvent = this.repositorioLocal.map(x => x.count);
          this.cantEvent = this.cantEvent.filter(x => x != undefined);
-         console.log("cantEvent"+this.cantEvent);
-
-        
-
-
          
-
-
-         axios.get("https://stark-escarpment-65840.herokuapp.com/api/infoCards").then(({ data }) => { this.publicCards = data;
-                //  console.log(data)
-             })
-             .catch(() => console.log("we try connect to the data base"));
-         axios.get()
+         if(typeof(cantEvent))
+         
+     
+         axios.get("https://stark-escarpment-65840.herokuapp.com/api/infoCards").then(({ data }) => { this.publicCards = data })
+         .catch(() => console.log("we try connect to the data base"));
      },
 
      methods: {
