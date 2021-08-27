@@ -51,7 +51,7 @@ const app = Vue.createApp({
 
             if (!item.cart) {
              
-                const newItem = Object.assign({}, item, { countMerch: 1, count: 1 });
+                const newItem = Object.assign({}, item, { countMerch: 1});
                 item.cart = true;
             
                 this.cartItems.push(newItem);
