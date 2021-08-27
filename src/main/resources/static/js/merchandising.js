@@ -119,7 +119,7 @@ const app = Vue.createApp({
         totalPrice() {
             let totalPrice = 0
             for (let i = 0; i < this.cartItems.length; i++) {
-                totalPrice += (this.cartItems[i].price * this.cartItems[i].count) + (this.cartItems[i].price * this.cartItems[i].countMerch)
+                totalPrice += this.cartItems[i].price * this.cartItems[i].countMerch
             }
             sessionStorage.setItem('TOTALPRICE', JSON.stringify(totalPrice));
             return totalPrice
