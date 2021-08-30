@@ -84,7 +84,7 @@ const app = Vue.createApp({
               }).then((result) => {
                 if (result.isConfirmed) {
                     axios.post('/api/merchs/createMerch',
-                    "productType="+this.productType+"&"+"productName="+this.productName+"&"+"descriptionProduct="+this.descriptionProduct+"&"+"imageProduct="+"./assets/lolaMerch.jpg"+"&"+
+                    "productType="+this.productType+"&"+"productName="+this.productName+"&"+"descriptionProduct="+this.descriptionProduct+"&"+"imageProduct="+"./assets/logo2.png"+"&"+
                     "tallesProduct="+this.tallesProduct+"&"+"stockProduct="+this.stockProduct+"&"+"priceProduct="+this.priceProduct,                                    
                     {headers:{'accept':'application/xml'}})
                     .then(res => Swal.fire(
