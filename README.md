@@ -29,3 +29,6 @@ Login page
 Example Admin page
 
 ![image](https://user-images.githubusercontent.com/63264380/132746514-56852438-6152-4fc0-ab45-af9ea157b8b4.png)
+
+![image](https://user-images.githubusercontent.com/63264380/132749147-1e78d62c-4222-4062-8529-c9e658a50744.png)
+
