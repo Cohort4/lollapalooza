@@ -73,12 +73,12 @@ const app = Vue.createApp({
 
         },
         decrement(item) {
-            item.count--;
+            item.count-- || item.countMerch--;
             sessionStorage.setItem('SESSIONSTATUS', JSON.stringify(this.cartItems))
             
         },
         increment(item) {
-            item.count++
+            item.count++ || item.countMerch++
             sessionStorage.setItem('SESSIONSTATUS', JSON.stringify(this.cartItems))
         },
         formatBalance(balance) {
@@ -90,6 +90,12 @@ const app = Vue.createApp({
                 currency: 'USD',
             })
             return amount.format(balance)
+        },
+        unitCant(item){
+            return item.count || item.countMerch
+        },
+        cantTotal(){
+            return 5;
         },
         deleteProduct(index) {
             this.cartItems.splice(index, 1)
@@ -119,7 +125,7 @@ const app = Vue.createApp({
         totalPrice() {
             let totalPrice = 0
             for (let i = 0; i < this.cartItems.length; i++) {
-                totalPrice += this.cartItems[i].price * this.cartItems[i].count
+                totalPrice += this.cartItems[i].price * (this.cartItems[i].count || this.cartItems[i].countMerch)
             }
             sessionStorage.setItem('TOTALPRICE', JSON.stringify(totalPrice));
             return totalPrice

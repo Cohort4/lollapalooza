@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
@@ -43,12 +44,11 @@ public class MerchController {
     public ResponseEntity<?> registerMerchs(@RequestParam ProductType productType,
                                             @RequestParam String productName,
                                             @RequestParam String descriptionProduct,
-                                            @RequestParam String imageProduct,
                                             @RequestParam String tallesProduct,
                                             @RequestParam int stockProduct,
                                             @RequestParam Double priceProduct) throws IOException {
 
-        return merchService.registerMerchs(productType,productName,descriptionProduct,imageProduct,
+        return merchService.registerMerchs(productType,productName,descriptionProduct,"./assets/logo2.png",
                                            tallesProduct,stockProduct,priceProduct  );
     }
 
