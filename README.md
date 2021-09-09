@@ -1,36 +1,34 @@
-# Lollapalooza-Vue.js-JAVA
+# Lollapalooza website
+
 Group challenge of a web app for Lollapalooza in HTML5, CSS3, js, Vue.js, JAVA, Spring-Boot technology.
 
-Bienvenidos chicos!
+Starting screen
 
-## Configuraciones: 
+![image](https://user-images.githubusercontent.com/63264380/132745819-d9f31995-61c0-4a74-b5ea-177a127bc17b.png)
 
-```
-https://github.com/Bart-Developer/Lollapalooza-Vue.js-JAVA.git
-```
+Events
 
-Guia: 
+![image](https://user-images.githubusercontent.com/63264380/132745985-33c7c2f8-754d-4147-a7ef-ec9ddceb8957.png)
 
-```
-https://gist.github.com/BCasal/026e4c7f5c71418485c1
-```
+Shop
 
-### Maquetado: 
+![image](https://user-images.githubusercontent.com/63264380/132746046-a54a2d1c-b78e-49dc-b68e-edbf6af58119.png)
 
-## Sección tickets (carrito) ->
+Shopping cart
 
-https://es.wix.com/website-template/view/html/2391?siteId=198858a1-b0bf-4b7c-9d48-c8bd7d697b2b&metaSiteId=c9264341-5d03-46c1-ac9f-7be756b16468&originUrl=https%3A%2F%2Fes.wix.com%2Fwebsite%2Ftemplates%2Fhtml%2Fevents%2F5&tpClick=view_button
+![image](https://user-images.githubusercontent.com/63264380/132746135-1470f56b-4536-4b61-be96-ed288f85bd35.png)
 
-## Sección formato general ->
+Payment
 
-https://es.wix.com/website-template/view/html/2849?siteId=535e02a8-3b1b-459f-8b80-099a92b1c6c6&metaSiteId=7e5d5637-1508-4feb-9f66-10c537c900a5&originUrl=https%3A%2F%2Fes.wix.com%2Fwebsite%2Ftemplates%2Fhtml%2Fevents
+![image](https://user-images.githubusercontent.com/63264380/132746218-0453969d-2314-4f1b-9d3c-9661672e9edf.png)
 
-## Sección formato general (Me gusto el footer boton chat) -> 
+Login page
 
-https://es.wix.com/website-template/view/html/2174?siteId=62ab188b-ab40-4d29-ad80-e24dc115468a&metaSiteId=d8a0e3c3-805a-43ff-9545-36f1a5e8d7d3&originUrl=https%3A%2F%2Fes.wix.com%2Fwebsite%2Ftemplates%2Fhtml%2Fevents%2F2&tpClick=view_button
+![image](https://user-images.githubusercontent.com/63264380/132746334-4da3511f-0e53-4830-b9f2-9e9f224f0f44.png)
 
-## Link posticks:
+Example Admin page
 
-```
-http://linoit.com/users/smenichelli/canvases/LolaPalooza
-```
+![image](https://user-images.githubusercontent.com/63264380/132746514-56852438-6152-4fc0-ab45-af9ea157b8b4.png)
+
+![image](https://user-images.githubusercontent.com/63264380/132749147-1e78d62c-4222-4062-8529-c9e658a50744.png)
+
