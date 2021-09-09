@@ -69,7 +69,7 @@
                                 <option  value="Delete">Delete product</option>
                              </select>
                         </div>
-                        <form class="formAdd" v-show="merchandisingType==='Add'" @submit.prevent="addMerchandising" >
+                        <form class="formAdd" v-show="merchandisingType==='Add'"  @submit.prevent="addMerchandising" >
                             <div class="divAdd">
                                 <label class="labelDiv" for="">Type</label>
                                 <select class="inputDiv" v-model="productType">   
@@ -104,17 +104,36 @@
                                 <input class="inputDiv" v-model="descriptionProduct" id="descriptionProduct" name="descriptionProduct" required maxlength="20">
                             </div>
                             <div class="divAdd">
-                                <label class="labelDiv">Sizes</label>
-                                <input class="inputDiv" v-model="tallesProduct" id="tallesProduct" name="tallesProduct">
-                            </div>
-                           <!--  <div class="divAdd">
-                                <label class="labelDiv">Image</label>
-                                <input class="inputDiv" v-model="imageProduct" type="file" id="imageProduct" name="imageProduct">
+                                <label class="labelDiv">Talles</label>
+                                <div class="inputDiv d-flex ">    
+                                <div class="inputTalles">  
+                                    <input v-model="tallesProduct" type="checkbox" name="tallesProduct" value="XS" id="XS"><label >XS</label>                                                      
+                                </div> 
+                                <div class="inputTalles">
+                                    <input v-model="tallesProduct" type="checkbox" name="tallesProduct" value="S" id="S"/><label >S</label>                            
+                                 </div>
+                                 <div class="inputTalles">
+                                    <input v-model="tallesProduct" type="checkbox" name="tallesProduct" value="M" id="M"><label >M</label>                            
+                                </div>
+                                <div class="inputTalles">
+                                    <input v-model="tallesProduct" type="checkbox" name="tallesProduct" value="L" id="L"><label >L</label>                            
+                                </div>
+                                <div class="inputTalles">
+                                    <input v-model="tallesProduct" type="checkbox" name="tallesProduct" value="XL" id="XL"><label >XL</label>
+                                </div>
+                                </div>
+                            </div>   
+
+                            <!-- <div class="divAdd">
+                                <label class="labelDiv" >Image</label>
+                                <input class="inputDiv"  type="file"  name="file">
                             </div> -->
                             <div class="divAdd text-center">
                                 <button class="btn btn-secondary btn-lg mt-2" type="submit">Add product</button>
                             </div>
                         </form>
+                       
+                        
                         <form class="formAdd" v-show="merchandisingType==='Upload'" @submit.prevent="editMerchandising">
                             <div class="divAdd">
                                 <label class="labelDiv">Product</label>
@@ -123,7 +142,7 @@
                                     <option class="inputDiv" v-for="product in products">{{product.name}}</option>
                                 </select>
                             </div>
-                            <div v-if="productSelected" class="text-center">
+                            <div v-if="productSelected && merchandisingType==='Upload'" class="text-center">
                                 <div class="formAdd">
                                     <table class="table table-striped w-100">
                                         <thead>
@@ -224,8 +243,8 @@
                             <template v-if="events.length > 0">
                                 <table class="table table-striped w-100" >
                                     <thead >
-                                        <tr>     
-                                            
+                                        <tr>   
+                                        
                                             <th class="text-center">EventName</th>                   
                                             <th class="text-center">Bands</th>
                                             <th class="text-center">Date Concert</th>    
@@ -254,6 +273,10 @@
                             </template>
                         </div>
                         <form class="formAdd" v-show="eventType==='Add'" @submit.prevent="addEvent" >
+                            <div class="divAdd">
+                                <label class="labelDiv">Event name</label>
+                                <input class="inputDiv" v-model="nameEvent" id="nameEvent" name="namesEvent" required maxlength="40"></input>
+                            </div> 
                             <div class="divAdd">
                                 <label class="labelDiv">Bands</label>
                                 <input class="inputDiv" v-model="bandsEvent" id="bandsEvent" name="bandsEvent" required maxlength="40"></input>
@@ -313,18 +336,13 @@
                                     <div class="divAdd">
                                         <label class="labelDiv">Date</label>
                                         <input class="inputDiv" type="date" v-model="dateEvent" id="dateEvent" name="dateEvent" required >
-                                    </div>                              
-                                    
+                                    </div>                             
                                     <div class="divAdd">
                                         <button class="btn btn-secondary btn-lg mt-2 " type="submit">Edit Event</button>
                                     </div>
                                 </div>
-                            </div>                               
-                              
-                           
-                            
+                            </div>                             
                         </form>
-
 
                     </div>
                     <div class="divManagerComment" v-show="manageType==='comment'">                        

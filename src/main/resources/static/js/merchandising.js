@@ -66,12 +66,12 @@ const app = Vue.createApp({
             }
         },
         decrement(item) {
-            item.countMerch--;
+            item.countMerch-- || item.count--;
             sessionStorage.setItem('SESSIONSTATUS', JSON.stringify(this.cartItems))
 
         },
         increment(item) {
-            item.countMerch++
+            item.countMerch++ || item.count++
             sessionStorage.setItem('SESSIONSTATUS', JSON.stringify(this.cartItems))
         },
         formatBalance(balance) {
@@ -83,6 +83,9 @@ const app = Vue.createApp({
                 currency: 'USD',
             })
             return amount.format(balance)
+        },
+        unitCant(item){
+            return item.count || item.countMerch
         },
         deleteProduct(index) {
             this.cartItems.splice(index, 1)
@@ -97,9 +100,6 @@ const app = Vue.createApp({
                 .catch(error => Swal.fire(error.response.data))
                 
         },
-    
-
-
 /*         generatePDF(numberFactura) {
 
             axios.post("/api/clients/current/export/pdf", "numberFactura=" + numberFactura, { responseType: 'blob' })
@@ -114,15 +114,15 @@ const app = Vue.createApp({
                 })
                 .catch(err => console.log(err))
         }
-
         } */
-
     },
     computed: {
         totalPrice() {
+            console.log(this.cartItems)
             let totalPrice = 0
             for (let i = 0; i < this.cartItems.length; i++) {
-                totalPrice += this.cartItems[i].price * this.cartItems[i].countMerch
+                
+                totalPrice += this.cartItems[i].price * (this.cartItems[i].countMerch || this.cartItems[i].count)
             }
             sessionStorage.setItem('TOTALPRICE', JSON.stringify(totalPrice));
             return totalPrice

@@ -178,22 +178,14 @@
                                 <img :src="item.image" class="imgP" alt="">
                                 <!-- </div> -->
                                 <div class="details d-flex flex-column align-items-center">
-                                    <div class="tittle mb-2 fs-3">{{item.name}}</div>
-                                    <div class="priceP mb-3 d-flex justify-content-between align-items-center">
-                                        <!-- <select v-model="talles" class="form-select w-25 h-25" aria-label="Default select example">
-                                        <option value="" selected>Talle</option>
-                                        <option v-for="size in cartItems" :value="size.talles">{{size.talles}}</option>
-                                    </select> -->
+                                    <div class="tittle mb-2 fs-3">{{item.name != null ? item.name.toString() : item.nameEvent}}</div>
+                                    <div class="priceP mb-3 d-flex justify-content-between align-items-center">                                        
                                         <p class="fs-4">{{ formatBalance(item.price) }}</p>
                                     </div>
-                                    <div class="">
-                                        <!-- <span><button class="btn btn-dark less" @click="less">-</button></span>
-                                    <span class="m-3">{{quantity}}</span>
-                                    <span> <button class="btn btn-dark" @click="more">+</button></span> -->
-                                        <button class="btn btn-dark" @click="decrement(item)" :disabled="item.countMerch<=1">
-                                            < </button>
-                                                <span class="m-3">{{item.countMerch}}</span>
-                                                <button class="btn btn-dark" @click="increment(item)"> > </button>
+                                    <div class="">                                       
+                                        <button class="btn btn-dark" @click="decrement(item)" :disabled="unitCant(item)<=1">< </button>                                        
+                                        <span class="m-3">{{unitCant(item)}}</span>
+                                        <button class="btn btn-dark" @click="increment(item)"> > </button>
                                     </div>
                                 </div>
                                 <div class="trash">

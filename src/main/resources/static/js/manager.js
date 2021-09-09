@@ -13,13 +13,14 @@ const app = Vue.createApp({
             productName:"",
             stockProduct:"",
             priceProduct:"",  
-            tallesProduct:"null",
+            tallesProduct:[],
             imageProduct:"",
             descriptionProduct:"", 
             productSelected:"", 
             editStock:"",
             editPrice:"",
             eventType:"",
+            nameEvent:"",
             bandsEvent:"",
             priceEvent:"",
             dateEvent:"",
@@ -72,7 +73,7 @@ const app = Vue.createApp({
           }
       },                
         addMerchandising(){
-              
+          
             Swal.fire({
                 title: '¿Do you want to create the product?',
                 text: "",
@@ -84,14 +85,14 @@ const app = Vue.createApp({
               }).then((result) => {
                 if (result.isConfirmed) {
                     axios.post('/api/merchs/createMerch',
-                    "productType="+this.productType+"&"+"productName="+this.productName+"&"+"descriptionProduct="+this.descriptionProduct+"&"+"imageProduct="+"./assets/lolaMerch.jpg"+"&"+
+                    "productType="+this.productType+"&"+"productName="+this.productName+"&"+"descriptionProduct="+this.descriptionProduct+"&"+
                     "tallesProduct="+this.tallesProduct+"&"+"stockProduct="+this.stockProduct+"&"+"priceProduct="+this.priceProduct,                                    
                     {headers:{'accept':'application/xml'}})
                     .then(res => Swal.fire(
                    'Successfully created product!',
                     'will be added to the shop.',
                     'success',))
-                   .then(response => location.reload())                  
+                  .then(response => location.reload())                  
                   .catch(res=> Swal.fire(res.response.data,"Check information","error"))
                   
                   
@@ -162,7 +163,7 @@ const app = Vue.createApp({
           }).then((result) => {
             if (result.isConfirmed) {
                 axios.post('/api/event/addEvent',
-                "bandsEvent="+this.bandsEvent+"&"+"priceEvent="+this.priceEvent+"&"+"dateEvent="+this.dateEvent+"&"+"siteEvent="+this.siteEvent,                                    
+                "nameEvent="+this.nameEvent+"&"+"bandsEvent="+this.bandsEvent+"&"+"priceEvent="+this.priceEvent+"&"+"dateEvent="+this.dateEvent+"&"+"siteEvent="+this.siteEvent,                                    
                 {headers:{'accept':'application/xml'}})
                 .then(res => Swal.fire(
                'Event agree',
@@ -186,7 +187,7 @@ const app = Vue.createApp({
             }).then((result) => {
               if (result.isConfirmed) {
                   axios.post('/api/event/deleteEvent',
-                  "id="+event.id,                                    
+                  "nameEvent="+event.nameEvent,                                    
                   {headers:{'accept':'application/xml'}})
                   .then(res => Swal.fire(
                  'Event updated',

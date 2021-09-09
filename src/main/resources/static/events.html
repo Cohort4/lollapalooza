@@ -63,7 +63,7 @@
                         </li>
                         <li class="nav-menu-item">
                             <a href="merchandising.html" class="nav-menu-link nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                                    <i class="counter fas fa-shopping-cart glob">{{counter}}</i>
+                                    <i class="counter fas fa-shopping-cart glob">{{cantTotal()}}</i>
                                 </a>
                         </li>
                         <li class="nav-menu-item">
@@ -162,16 +162,16 @@
                                 <img :src="item.image" class="imgP" alt="">
                                 <div class="details d-flex flex-column align-items-center">
 
-                                    <div class="tittle m-3 flex-grow">{{item.bands != null ? item.bands.toString() : null}}</div>
+                                    <div class="tittle m-3 flex-grow">{{item.nameEvent != null ? item.nameEvent.toString() : item.name}}</div>
                                     <div class="priceP mb-3 d-flex justify-content-between align-items-center">
                                         <p class="price">{{ formatBalance(item.price) }}</p>
                                     </div>
                                     <div class="botonesCarrito">
-                                        <button class="btn btn-dark" @click="decrement(item)" :disabled="item.count<=1">
-                                              <      </button>
-                                        <span class="m-3">{{item.count}}</span>
-                                        <button class="btn btn-dark" @click="increment(item)"> >
+                                        <button class="btn btn-dark" @click="decrement(item)" :disabled="unitCant(item)<=1"><
                                                     </button>
+                                        <span class="m-3">{{unitCant(item)}}</span>
+                                        <button class="btn btn-dark" @click="increment(item)"> > </button>
+                                                    
                                     </div>
 
                                 </div>
