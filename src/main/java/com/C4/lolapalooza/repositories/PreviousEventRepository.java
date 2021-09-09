@@ -7,4 +7,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource
 public interface PreviousEventRepository extends JpaRepository<PreviousEvent, Long> {
 
+    PreviousEvent getById(Long id);
 }

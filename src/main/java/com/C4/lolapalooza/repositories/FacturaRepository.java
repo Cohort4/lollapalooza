@@ -6,4 +6,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
 public interface FacturaRepository extends JpaRepository<Factura, Long> {
+    Factura getById(Long numberFactura);
 }
