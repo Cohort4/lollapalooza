@@ -1,4 +1,5 @@
-# Lollapalooza-Vue.js-JAVA
+# Lollapalooza website
+
 Group challenge of a web app for Lollapalooza in HTML5, CSS3, js, Vue.js, JAVA, Spring-Boot technology.
 
 Starting screen
