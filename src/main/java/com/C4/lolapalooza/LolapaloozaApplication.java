@@ -71,12 +71,12 @@ public class LolapaloozaApplication {
 			Merch barbijo3 = merchRepository.save(new Merch(ProductType.Accessories,"Mask","", "./assets/barbijo3.png", 2000, 450.00,true ));
 			Merch barbijo4 = merchRepository.save(new Merch(ProductType.Accessories,"Mask", "", "./assets/barbijo4.png", 2000, 450.00,true ));
 
-			Site site = siteRepository.save((new Site("Buenos Aires, Hipodromo - San Isidro", 100)));
+			Site site = siteRepository.save((new Site("Buenos Aires, Hipódromo - San Isidro", 100)));
 
-			Event event = eventRepository.save(new Event("Day1",List.of("Metallica", "Redhot chilli pepers", "Foo Fighters","Kasabian"), LocalDate.of(2021, 9, 9), 2500, site,true,"./img/day1.jpg"));
+			Event event = eventRepository.save(new Event("Day1",List.of("Metallica", "Red Hot Chili Peppers", "Foo Fighters","Kasabian"), LocalDate.of(2021, 9, 9), 2500, site,true,"./img/day1.jpg"));
 			Event event2 = eventRepository.save(new Event("Day2",List.of("Ke Personajes", "Roman, El Original", "L-Gante","Damas Gratis"), LocalDate.of(2021, 9 , 10), 1000, site,true,"./img/day2.jpg"));
 			Event event3 = eventRepository.save(new Event("Day3",List.of("Duki", "Wos", "Lit Killah","Bad Bunny"), LocalDate.of(2021, 9, 11), 1000, site,true,"./img/day3.jpg"));
-			Event event4 = eventRepository.save(new Event("Day4",List.of("Justin Bieber", "Shawn Mendes", "Selena Gomez","Justin Timberlake"), LocalDate.of(2021 , 9 , 12), 2000, site,true,"./img/day4.jpg"));
+			Event event4 = eventRepository.save(new Event("Day4",List.of("No Te Va Gustar", "Intoxicados", "Ciro y los Persas","La Vela Puerca"), LocalDate.of(2021 , 9 , 12), 2000, site,true,"./img/day4-.jpg"));
 
 
 			TicketFactura ticketFactura = ticketFacturaRepository.save(new TicketFactura(factura));

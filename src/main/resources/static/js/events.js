@@ -5,7 +5,7 @@ const app = Vue.createApp({
             events: [],
             meses: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"],
             idTicket: "",
-            counter: "",
+            counter: JSON.parse(sessionStorage.getItem("COUNTER")) == null ? 0 : JSON.parse(sessionStorage.getItem("COUNTER")),
             i: false,
             cart: false,
             cartItems: JSON.parse(sessionStorage.getItem("SESSIONSTATUS")) == null ? [] : JSON.parse(sessionStorage.getItem("SESSIONSTATUS")),
@@ -64,6 +64,7 @@ const app = Vue.createApp({
                 this.cartItems.push(newItem);
 
                 this.counter++
+                sessionStorage.setItem('COUNTER', JSON.stringify(this.counter))
 
                 sessionStorage.setItem('SESSIONSTATUS', JSON.stringify(this.cartItems))
 
@@ -74,12 +75,17 @@ const app = Vue.createApp({
         },
         decrement(item) {
             item.count-- || item.countMerch--;
+            this.counter--
             sessionStorage.setItem('SESSIONSTATUS', JSON.stringify(this.cartItems))
+            sessionStorage.setItem('COUNTER', JSON.stringify(this.counter))
+            
             
         },
         increment(item) {
             item.count++ || item.countMerch++
+            this.counter++
             sessionStorage.setItem('SESSIONSTATUS', JSON.stringify(this.cartItems))
+            sessionStorage.setItem('COUNTER', JSON.stringify(this.counter))
         },
         formatBalance(balance) {
             if (balance == null) {
@@ -95,11 +101,13 @@ const app = Vue.createApp({
             return item.count || item.countMerch
         },
         cantTotal(){
-            return 5;
+            
         },
         deleteProduct(index) {
             this.cartItems.splice(index, 1)
-            this.counter -= 1;
+            totalproduct=index.count || index.countMerch
+            this.counter = this.counter - totalproduct;
+            sessionStorage.setItem('COUNTER', JSON.stringify(this.counter))
             this.item.cart = false;
             sessionStorage.setItem('SESSIONSTATUS', JSON.stringify(this.cartItems))
             this.cartItems = JSON.parse(sessionStorage.getItem("SESSIONSTATUS"));

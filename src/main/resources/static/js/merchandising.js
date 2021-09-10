@@ -12,7 +12,7 @@ const app = Vue.createApp({
             data: [],
             cartItems: JSON.parse(sessionStorage.getItem("SESSIONSTATUS")) == null ? [] : JSON.parse(sessionStorage.getItem("SESSIONSTATUS")),
             talles: "",
-            counter: "",
+            counter: JSON.parse(sessionStorage.getItem("COUNTER")) == null ? 0 : JSON.parse(sessionStorage.getItem("COUNTER")),
             item: {},
             // Filtros
             check: [],
@@ -58,6 +58,7 @@ const app = Vue.createApp({
                 this.cartItems.push(newItem);
                
                 this.counter++
+                sessionStorage.setItem('COUNTER', JSON.stringify(this.counter))
 
                 sessionStorage.setItem('SESSIONSTATUS', JSON.stringify(this.cartItems))
 
@@ -66,12 +67,16 @@ const app = Vue.createApp({
             }
         },
         decrement(item) {
-            item.countMerch-- || item.count--;
+            item.countMerch-- || item.count--
+            this.counter--
+            sessionStorage.setItem('COUNTER', JSON.stringify(this.counter))
             sessionStorage.setItem('SESSIONSTATUS', JSON.stringify(this.cartItems))
 
         },
         increment(item) {
             item.countMerch++ || item.count++
+            this.counter++
+            sessionStorage.setItem('COUNTER', JSON.stringify(this.counter))
             sessionStorage.setItem('SESSIONSTATUS', JSON.stringify(this.cartItems))
         },
         formatBalance(balance) {
@@ -89,7 +94,9 @@ const app = Vue.createApp({
         },
         deleteProduct(index) {
             this.cartItems.splice(index, 1)
-            this.counter -= 1;
+            totalproduct=index.count || index.countMerch
+            this.counter = this.counter - totalproduct;
+            sessionStorage.setItem('COUNTER', JSON.stringify(this.counter))
             this.item.cart = false;
             sessionStorage.setItem('SESSIONSTATUS', JSON.stringify(this.cartItems))
             this.cartItems = JSON.parse(sessionStorage.getItem("SESSIONSTATUS"));
@@ -100,31 +107,21 @@ const app = Vue.createApp({
                 .catch(error => Swal.fire(error.response.data))
                 
         },
-/*         generatePDF(numberFactura) {
-
-            axios.post("/api/clients/current/export/pdf", "numberFactura=" + numberFactura, { responseType: 'blob' })
-
-            .then((response) => {
-                    const url = window.URL.createObjectURL(new Blob([response.data]));
-                    const link = document.createElement('a');
-                    link.href = url;
-                    link.setAttribute('download', 'Factura' + numberFactura + '.pdf');
-                    document.body.appendChild(link);
-                    link.click();
-                })
-                .catch(err => console.log(err))
-        }
-        } */
     },
     computed: {
         totalPrice() {
-            console.log(this.cartItems)
+            
             let totalPrice = 0
             for (let i = 0; i < this.cartItems.length; i++) {
                 
                 totalPrice += this.cartItems[i].price * (this.cartItems[i].countMerch || this.cartItems[i].count)
             }
             sessionStorage.setItem('TOTALPRICE', JSON.stringify(totalPrice));
+            if (totalPrice==0)
+            {
+                this.counter=0
+                sessionStorage.setItem('COUNTER', JSON.stringify(this.counter))
+            }
             return totalPrice
         },
         filter () {
