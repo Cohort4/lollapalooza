@@ -34,32 +34,22 @@ const app = Vue.createApp({
     },
 
     created() {
-        console.log(this.articlePrice)
         this.productsArray = this.repositorioLocal.map(x => x.name);
         this.productsArray = this.productsArray.filter(x => x != undefined)
-
-
         this.cantProductsArray = this.repositorioLocal.map(x => x.countMerch)
-        this.cantProductsArray = this.cantProductsArray.filter(x => x != undefined);
-
-
-        this.nameEvent = this.repositorioLocal.map(x => x.nameEvent);
-        this.nameEvent = this.nameEvent.filter(x => x != undefined);
-
-
-        this.cantEvent = this.repositorioLocal.map(x => x.count);
-        this.cantEvent = this.cantEvent.filter(x => x != undefined);
+        this.cantProductsArray = this.cantProductsArray.filter(x => x != undefined)
+        this.nameEvent = this.repositorioLocal.map(x => x.nameEvent)
+        this.nameEvent = this.nameEvent.filter(x => x != undefined)
+        this.cantEvent = this.repositorioLocal.map(x => x.count)
+        this.cantEvent = this.cantEvent.filter(x => x != undefined)
 
         if (typeof (cantEvent))
-
-
             axios.get("https://stark-escarpment-65840.herokuapp.com/api/infoCards").then(({ data }) => { this.publicCards = data })
                 .catch(() => console.log("we try connect to the data base"));
-    },
+                },
 
     methods: {
-        sendBuy() {
-            
+        sendBuy() {            
             axios.post('https://stark-escarpment-65840.herokuapp.com/api/newPurchase', `cardHolder=${this.cardHolder}&thruDate=${this.thruDate.replace("/", "-")}&number=${this.cardNumber}&cvv=${this.cvv}&fees=${this.fees}&nameArticle=${this.articleName}&amount=${this.articlePrice}&fromPage=${this.fromPage}`)
                 .then(() => {
                     axios.post('/api/clients/current/newfactura', `nameArticle=${this.productsArray}&cantArticle=${this.cantProductsArray}&nameEvent=${this.nameEvent}&cantEvent=${this.cantEvent} `)
@@ -102,10 +92,8 @@ const app = Vue.createApp({
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Oops...',
-                                text: 'are you login?',
-                                footer: `<strong>${res.response.data}</strong>`
+                                text: 'are you login?',                               
                             })
-
                         })
                 })
                 .catch((res) => {
@@ -113,8 +101,7 @@ const app = Vue.createApp({
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
-                        text: 'Something went wrong! are you login?',
-                        footer: `<strong>${res.response.data}</strong>`
+                        text: 'Something went wrong! are you login?',                        
                     })
                 })
         },
@@ -137,7 +124,6 @@ const app = Vue.createApp({
             }
         }
     },
-
 })
 
 app.mount("#app")

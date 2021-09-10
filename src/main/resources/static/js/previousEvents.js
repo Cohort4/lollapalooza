@@ -12,8 +12,7 @@ const app = Vue.createApp({
         axios.get('/api/previousevent')
             .then(res => {
                 this.eventosPrevios = res.data
-                this.getJSessionId();
-                console.log(this.eventosPrevios)
+                this.getJSessionId();                
             })
     },
 
